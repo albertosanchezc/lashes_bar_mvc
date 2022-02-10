@@ -2,7 +2,7 @@ src/
 vendor/
 node_modules/
 lashes_bar_mvc.sql
-gulpfile.js/
+gulpfile.js
 package.json
 package-lock.json
 .DS_Store
