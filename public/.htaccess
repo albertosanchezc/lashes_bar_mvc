@@ -1,3 +1,5 @@
+Header set Access-Control-Allow-Origin 'origin-list'
+
 Options -MultiViews
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
