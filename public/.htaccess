@@ -1,4 +1,4 @@
-Header set Access-Control-Allow-Origin 'https://mighty-shore-80498.herokuapp.com/'
+Header set Access-Control-Allow-Origin 
 
 Options -MultiViews
 RewriteEngine On
