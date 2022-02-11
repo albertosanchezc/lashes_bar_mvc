@@ -1,4 +1,4 @@
-Header set Access-Control-Allow-Origin 'https://mighty-shore-80498.herokuapp.com/cita'
+Header set Access-Control-Allow-Origin 'https://mighty-shore-80498.herokuapp.com/'
 
 Options -MultiViews
 RewriteEngine On
