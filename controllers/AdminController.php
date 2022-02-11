@@ -21,7 +21,7 @@ class AdminController
         $fechas = explode('-', $fecha);
 
         if(!checkdate($fechas[1], $fechas[2], $fechas[0])){
-            header('Location: /404');
+            header('Location: /');
         }
         
         
