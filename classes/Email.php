@@ -4,6 +4,7 @@ namespace Classes;
 
 use PHPMailer\PHPMailer\PHPMAiler;
 
+
 class Email
 {
     public $email;
