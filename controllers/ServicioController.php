@@ -9,9 +9,9 @@ class ServicioController{
     public static function index(Router $router){
         if (!$_SESSION) {
             session_start();
+            isAdmin();
         }
 
-        isAdmin();
 
         $servicios = Servicio::all();
 
