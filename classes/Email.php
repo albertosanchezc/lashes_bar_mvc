@@ -69,7 +69,7 @@ class Email
         
                 $contenido = "<html>";
                 $contenido .= "<p><strong>Hola ". $this->nombre . "</strong> Has Solicitado reestablecer tu password, sigue el siguiente enlace para hacerlo</p>";
-                $contenido .= "<p>Presiona Aquí:<a href='https://". $_SERVER["HTTP_HOST"] . "/recuperar?token=" . $this->token . "'>Reestablece Tu Password</a></p>";
+                $contenido .= "<p>Presiona Aquí:<a href=". $_SERVER["HTTP_HOST"] . "/recuperar?token=" . $this->token . "'>Reestablece Tu Password</a></p>";
                 $contenido .= "<p>Si tu no solicitaste esta cuenta, puedes ignorar este correo</p>";
                 $contenido .= "</html>";
                 $mail->Body = $contenido;
