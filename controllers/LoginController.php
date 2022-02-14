@@ -11,12 +11,9 @@ class LoginController
     public static function login(Router $router)
     {
         $alertas = [];
-
-        $auth = new Usuario;
-
+    
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $auth = new Usuario($_POST);
-
             $alertas = $auth->validarLogin();
 
             if (empty($alertas)) {
@@ -53,7 +50,7 @@ class LoginController
         $alertas = Usuario::getAlertas();
         $router->render('auth/login', [
             'alertas' => $alertas,
-            'auth' => $auth
+            
         ]);
     }
 
@@ -79,6 +76,7 @@ class LoginController
 
             if (empty($alertas)) {
                 $usuario = Usuario::where('email', $auth->email);
+
                 if ($usuario && $usuario->confirmado === "1") {
                     // Generar un token
                     $usuario->crearToken();
@@ -87,9 +85,10 @@ class LoginController
                     //Enviar el email
                     $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
                     $email->enviarInstrucciones();
-
+                    //debuguear($email);
                     //Alerta de éxito
                     Usuario::setAlerta('exito', ' Revisa tu email');
+                    
                 } else {
                     Usuario::setAlerta('error', 'El usuario no existe o no está confirmado');
                 }
@@ -106,6 +105,7 @@ class LoginController
     {
 
         $alertas = [];
+        $error = false;
 
         $token = s($_GET['token']);
 
@@ -115,8 +115,6 @@ class LoginController
         if (empty($usuario)) {
             Usuario::setAlerta('error', 'Token No Válido');
             $error = true;
-        }else{
-            $error =false;
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
