@@ -3,7 +3,8 @@
 namespace Classes;
 
 use PHPMailer\PHPMailer\PHPMAiler;
-
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 
 class Email
@@ -25,8 +26,9 @@ class Email
         $mail = new PHPMailer();
         $mail->isSMTP();
         $mail->Host = 'smtp.mailtrap.io';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
+        $mail->Port = 465;
         $mail->Username = 'e8f93059c33c8b';
         $mail->Password = '340e2e67a23d41';
 
