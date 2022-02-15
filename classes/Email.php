@@ -3,7 +3,6 @@
 namespace Classes;
 
 use PHPMailer\PHPMailer\PHPMAiler;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 
