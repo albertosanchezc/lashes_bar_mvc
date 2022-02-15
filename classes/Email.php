@@ -4,8 +4,6 @@ namespace Classes;
 
 use PHPMailer\PHPMailer\PHPMAiler;
 
-require("/home/site/libs/PHPMailer-master/src/PHPMailer.php");
-require("/home/site/libs/PHPMailer-master/src/SMTP.php");
 
 class Email
 {
