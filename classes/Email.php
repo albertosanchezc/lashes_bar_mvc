@@ -3,7 +3,6 @@
 namespace Classes;
 
 use PHPMailer\PHPMailer\PHPMAiler;
-use PHPMailer\PHPMailer\Exception;
 
 
 class Email
@@ -25,9 +24,8 @@ class Email
         $mail = new PHPMailer();
         $mail->isSMTP();
         $mail->Host = 'smtp.mailtrap.io';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->SMTPAuth = true;
-        $mail->Port = 465;
+        $mail->Port = 2525;
         $mail->Username = 'e8f93059c33c8b';
         $mail->Password = '340e2e67a23d41';
 
@@ -38,15 +36,15 @@ class Email
         // Set HTML
         $mail->isHTML(TRUE);
         $mail->CharSet = 'UTF-8';
-        $contenido = "<!DOCTYPE html>";
-        $contenido .= "<html>";
+
+        $contenido = "<html>";
         $contenido .= "<p><strong>Hola ". $this->email . "</strong> Has creado tu cuenta en Lashes Bar, solo debes confirmarla presionando el siguiente enlace</p>";
         $contenido .= "<p>Presiona aquí: <a href='http://". $_SERVER["HTTP_HOST"] . "/confirmar-cuenta?token=".$this->token."'>Confirmar Cuenta</a> </p>";
         $contenido .= "<p>Si tu no solicitaste esta cuenta, puedes ignorar este correo</p>";
         $contenido .= "</html>";
         $mail->Body = $contenido;
         
-        debuguear($mail);
+
         // Enviar el mail
         $mail->send();
     }
