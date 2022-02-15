@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
-<h1 class="nombre-pagina">Crear Cuenta</h1>
-<p class="descripcion-pagina">Llena el siguiente formulario para crear una cuenta</p>
+<h1 data-cy='heading-crear-cuenta' class="nombre-pagina">Crear Cuenta</h1>
+<p data-cy='descripcion-pagina' class="descripcion-pagina">Llena el siguiente formulario para crear una cuenta</p>
 
 <?php 
     include_once __DIR__ . "/../templates/alertas.php";
@@ -37,6 +36,6 @@
 </form>
 
 <div class="acciones">
-    <a href="/">¿Ya Tienes una Cuenta? Inicia Sesión</a>
-    <a href="/olvide">¿Olvidaste tu password?</a>
+    <a data-cy='href-ya-tiene-cuenta' href="/">¿Ya Tienes Una Cuenta? Inicia Sesión</a>
+    <a data-cy='href-olvide-password' href="/olvide">¿Olvidaste Tu Password?</a>
 </div>

@@ -1,6 +1,7 @@
 src/
 vendor/
 node_modules/
+cypress/
 lashes_bar_mvc.sql
 gulpfile.js
 package.json

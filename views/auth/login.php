@@ -1,5 +1,5 @@
-<h1 class="nombre-pagina">Login</h1>
-<p class="descripcion-pagina">Inicia sesión con tus datos</p>
+<h1 data-cy='heading-sitio' class="nombre-pagina">Login</h1>
+<p data-cy='descripcion-pagina' class="descripcion-pagina">Inicia Sesión Con Tus Datos</p>
 
 
 <?php 
@@ -16,11 +16,13 @@
         <label for="password">Password</label>
         <input type="password" id="password" placeholder="Tu Password" name="password">
     </div>
-    <input type="submit" class="boton" value="Iniciar Sesión">
+    <input data-cy='boton-iniciar-sesion' type="submit" class="boton" value="Iniciar Sesion">
+    
+
 </form>
 
 <div class="acciones">
-    <a href="/crear-cuenta">¿No tienes una Cuenta? Crear Una</a>
-    <a href="/olvide">¿Olvidaste tu password?</a>
+    <a data-cy='href-crear-cuenta' href="/crear-cuenta">¿No Tienes Una Cuenta? Crear Una</a>
+    <a data-cy='href-olvide-password' href="/olvide">¿Olvidaste Tu Password?</a>
 </div>
 
