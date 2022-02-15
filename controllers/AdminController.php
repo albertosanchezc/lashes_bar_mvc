@@ -11,9 +11,9 @@ class AdminController
     {
         if (!$_SESSION) {
             session_start();
+            isAdmin();
         }
 
-        isAdmin();
 
         date_default_timezone_set('America/Mexico_City');
 
@@ -38,7 +38,7 @@ class AdminController
         $consulta .= " WHERE fecha =  '${fecha}' ";
 
         $citas = AdminCita::SQL($consulta);
-        debuguear($citas);
+        //debuguear($citas);
         $router->render('admin/index', [
             'nombre' => $_SESSION['nombre'],
             'citas' => $citas,
