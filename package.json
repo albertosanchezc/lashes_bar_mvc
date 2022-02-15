@@ -25,12 +25,10 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-terser-js": "^5.2.2",
     "gulp-webp": "^4.0.1",
-    "nodemailer": "^6.7.2",
     "sass": "^1.41.1",
     "terser": "^5.3.8"
   },
-
-  "engines" :{
+  "engines": {
     "node": "16.13.1"
   }
 }
