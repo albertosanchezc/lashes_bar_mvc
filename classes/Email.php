@@ -1,9 +1,10 @@
 <?php
 
 namespace Classes;
+require("/home/site/libs/PHPMailer-master/src/PHPMailer.php");
+require("/home/site/libs/PHPMailer-master/src/SMTP.php");
 
 use PHPMailer\PHPMailer\PHPMAiler;
-
 
 class Email
 {
@@ -22,10 +23,14 @@ class Email
     public function enviarConfirmacion()
     {
         // Crear el objeto de Email
-        $mail = new PHPMailer();
+        $mail = new PHPMailer\PHPMailer\PHPMailer();
         $mail->isSMTP();
         $mail->Host = 'smtp.mailtrap.io';
-        $mail->SMTPAuth = true;
+        
+    $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+
         $mail->Port = 2525;
         $mail->Username = 'e8f93059c33c8b';
         $mail->Password = '340e2e67a23d41';
@@ -52,10 +57,14 @@ class Email
 
     public function enviarInstrucciones(){
                 // Crear el objeto de Email
-                $mail = new PHPMailer();
+                $mail = new PHPMailer\PHPMailer\PHPMailer();
                 $mail->isSMTP();
                 $mail->Host = 'smtp.mailtrap.io';
+
+                $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
                 $mail->SMTPAuth = true;
+                $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+            
                 $mail->Port = 2525;
                 $mail->Username = 'e8f93059c33c8b';
                 $mail->Password = '340e2e67a23d41';
