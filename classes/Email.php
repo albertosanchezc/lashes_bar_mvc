@@ -17,7 +17,8 @@ class Email
         $this->nombre = $nombre;
         $this->token = $token;
     }
-
+    
+    
     public function enviarConfirmacion()
     {
         // Crear el objeto de Email
