@@ -12,7 +12,7 @@ class APIController{
 
        echo json_encode($servicios);
     }
-
+//prueba
     public static function guardar(){
         // Almacena la Cita y devuelve el ID
         $cita = new Cita($_POST);
