@@ -21,7 +21,7 @@
 
 </form>
 
-<div class="acciones">
+<div data-cy='acciones' class="acciones">
     <a data-cy='href-crear-cuenta' href="/crear-cuenta">¿No Tienes Una Cuenta? Crear Una</a>
     <a data-cy='href-olvide-password' href="/olvide">¿Olvidaste Tu Password?</a>
 </div>
