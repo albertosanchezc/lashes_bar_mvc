@@ -53,7 +53,8 @@ class LoginController
         $alertas = Usuario::getAlertas();
         $router->render('auth/login', [
             'alertas' => $alertas,
-            'auth' => $auth
+            'auth' => $auth,
+            'titulo' => 'Iniciar Sesión'
         ]);
     }
 
@@ -98,7 +99,8 @@ class LoginController
         $alertas = Usuario::getAlertas();
 
         $router->render('auth/olvide-password', [
-            'alertas' => $alertas
+            'alertas' => $alertas,
+            'titulo' => 'Olvidé Password'
         ]);
     }
 
@@ -140,7 +142,8 @@ class LoginController
         $alertas = Usuario::getAlertas();
         $router->render('auth/recuperar-password', [
             'alertas' => $alertas,
-            'error' => $error
+            'error' => $error,
+            'titulo' => 'Reestablecer Password'
         ]);
     }
 
@@ -185,13 +188,16 @@ class LoginController
         }
         $router->render('auth/crear-cuenta', [
             'usuario' => $usuario,
-            'alertas' => $alertas
+            'alertas' => $alertas,
+            'titulo' => 'Crea tu cuenta en Lashes Bar'
         ]);
     }
 
     public static function mensaje(Router $router)
     {
-        $router->render('auth/mensaje');
+        $router->render('auth/mensaje', [
+            'titulo' => 'Envío de Correo'
+        ]);
     }
 
     public static function confirmar(Router $router)
@@ -218,7 +224,8 @@ class LoginController
         $alertas = Usuario::getAlertas();
         //Renderizar la vista
         $router->render('auth/confirmar-cuenta', [
-            'alertas' => $alertas
+            'alertas' => $alertas,
+            'titulo' => 'Confirmar Cuenta'
         ]);
     }
 }
