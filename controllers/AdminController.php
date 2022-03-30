@@ -42,7 +42,8 @@ class AdminController
         $router->render('admin/index', [
             'nombre' => $_SESSION['nombre'],
             'citas' => $citas,
-            'fecha' => $fecha
+            'fecha' => $fecha,
+            'titulo' => 'Index Admin Cita'
         ]);
     }
 }

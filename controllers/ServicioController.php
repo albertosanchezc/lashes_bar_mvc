@@ -15,7 +15,8 @@ class ServicioController{
 
         $router->render('servicios/index', [
             'nombre' => $_SESSION['nombre'],
-            'servicios' => $servicios
+            'servicios' => $servicios,
+            'titulo' => 'Index Admin'
         ]);
     }
 
@@ -43,7 +44,8 @@ class ServicioController{
         $router->render('servicios/crear', [
             'nombre' => $_SESSION['nombre'],
             'servicio' => $servicio,
-            'alertas' => $alertas
+            'alertas' => $alertas,
+            'titulo' => 'Crear servicio'
         ]);
     }
 
@@ -75,7 +77,8 @@ class ServicioController{
         $router->render('servicios/actualizar', [
             'nombre' => $_SESSION['nombre'],
             'servicio' => $servicio,
-            'alertas' => $alertas
+            'alertas' => $alertas,
+            'titulo' => 'Actualizar Servicio'
         ]);
      }
  
