@@ -53,8 +53,8 @@ class Email
     public function enviarInstrucciones(){
 
             // Crear el objeto de Email
-            require 'phpmailer/PHPMailerAutoload.php';
             $mail = new PHPMailer();
+            require 'phpmailer/PHPMailerAutoload.php';
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
