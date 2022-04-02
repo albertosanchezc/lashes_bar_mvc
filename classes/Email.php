@@ -5,6 +5,7 @@ namespace Classes;
 use PHPMailer\PHPMailer\PHPMAiler;
 
 
+
 class Email
 {
     public $email;
@@ -51,7 +52,9 @@ class Email
 
     public function enviarInstrucciones(){
                 // Crear el objeto de Email
-                $mail = new PHPMailer();
+                use PHPMailer\PHPMailer\PHPMailer;
+                require 'vendor/autoload.php';
+                $mail = new PHPMailer;
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
