@@ -62,7 +62,7 @@ class Email
         $mail->Username = 'albertosanchezc98@gmail.com';
         $mail->Password = 'blqvuhfqngqbmdss';
 
-        $mail->setFrom('cuentas@LashesBar.com');
+        $mail->setFrom('albertosanchezc98@gmail.com');
         $mail->addAddress($_POST['email'], $_POST['nombre']);
         $mail->Subject = 'Reestablece Tu Password';
 
