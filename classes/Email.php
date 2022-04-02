@@ -22,7 +22,6 @@ class Email
     public function enviarConfirmacion()
     {
         // Crear el objeto de Email
-        require 'phpmailer/PHPMailerAutoload.php';
         $mail = new PHPMailer();
         $mail->isSMTP();
         $mail->Host = 'smtp.mailtrap.io';
