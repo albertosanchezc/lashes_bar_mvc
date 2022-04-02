@@ -30,8 +30,9 @@ class Email
         $mail->Username = 'e8f93059c33c8b';
         $mail->Password = '340e2e67a23d41';
 
-        $mail->setFrom('cuentas@LashesBar.com');
-        $mail->addAddress($_POST['email']);
+        $mail->setFrom($_POST['email']);
+        $mail->addAddress('cuentas@LashesBar.com');
+        $mail->addReplyTo($_POST['email']);
         $mail->Subject = 'Confirma tu Cuenta';
 
         // Set HTML
