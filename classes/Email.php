@@ -51,7 +51,7 @@ class Email
 
     public function enviarInstrucciones()
     {
-        require 'phpmailer/PHPMailerAutoload.php';
+        //require 'phpmailer/PHPMailerAutoload.php';
         $mail = new PHPMailer();
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
