@@ -53,8 +53,8 @@ class Email
         $mail->Port = 587;
         $mail->Username = 'albertosanchezc98@gmail.com';
         $mail->Password = 'blqvuhfqngqbmdss';
-        $mail->setFrom($_POST['email']);
-        $mail->addAddress('cuentas@LashesBar.com', 'LashesBar.com');
+        $mail->setFrom('cuentas@LashesBar.com', 'LashesBar.com');
+        $mail->addAddress($this->email, $this->nombre);
         $mail->Subject = 'Reestablece Tu Password';
         // Set HTML
         $mail->isHTML(TRUE);
