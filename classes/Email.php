@@ -20,7 +20,6 @@ class Email
 
     public function enviarConfirmacion()
     {
-        require 'phpmailer/PHPMailerAutoload.php';
         // Crear el objeto de Email
         $mail = new PHPMailer();
         $mail->isSMTP();
@@ -31,7 +30,7 @@ class Email
         $mail->Password = '340e2e67a23d41';
 
         $mail->setFrom($_POST['email'], $_POST['nombre']);
-        $mail->addAddress('cuentas@LashesBar.com', 'LashesBar.com');
+        $mail->addAddress('cuentas@LashesBar.com');
         $mail->Subject = 'Confirma tu Cuenta';
 
         // Set HTML
@@ -52,7 +51,6 @@ class Email
 
     public function enviarInstrucciones(){
                 // Crear el objeto de Email
-                require 'vendor/autoload.php';
                 $mail = new PHPMailer();
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
