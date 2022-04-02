@@ -27,7 +27,7 @@ class Email
         $mail->Port = 587;
         $mail->Username = 'lashes.bar.qro@gmail.com';
         $mail->Password = 'ynahsmkrrljpnlkv';
-        $mail->setFrom($_POST['email']);
+        $mail->setFrom('cuentas@LashesBar.com', 'LashesBar.com');
         $mail->addAddress($this->email, $this->nombre);
         $mail->Subject = 'Confirma tu Cuenta';
         // Set HTML
