@@ -2,9 +2,8 @@
 
 namespace Classes;
 
-use SendGrid;
-use Exception;
-use PHPMailer\PHPMailer\PHPMAiler;
+
+use PHPMailer\PHPMailer\PHPMailer;
 
 
 class Email
@@ -23,6 +22,7 @@ class Email
     public function enviarConfirmacion()
     {
         // Crear el objeto de Email
+        require 'phpmailer/PHPMailerAutoload.php';
         $mail = new PHPMailer();
         $mail->isSMTP();
         $mail->Host = 'smtp.mailtrap.io';
@@ -31,7 +31,7 @@ class Email
         $mail->Username = 'e8f93059c33c8b';
         $mail->Password = '340e2e67a23d41';
 
-        $mail->setFrom('cuentas@LashesBar.com');
+        $mail->setFrom($_POST['email']);
         $mail->addAddress('cuentas@LashesBar.com', 'LashesBar.com');
         $mail->Subject = 'Confirma tu Cuenta';
 
@@ -52,39 +52,6 @@ class Email
     }
 
     public function enviarInstrucciones(){
-
-
-        require 'vendor/autoload.php'; // If you're using Composer (recommended)
-        // Comment out the above line if not using Composer
-        // require("<PATH TO>/sendgrid-php.php");
-        // If not using Composer, uncomment the above line and
-        // download sendgrid-php.zip from the latest release here,
-        // replacing <PATH TO> with the path to the sendgrid-php.php file,
-        // which is included in the download:
-        // https://github.com/sendgrid/sendgrid-php/releases
-        
-        $email = new \SendGrid\Mail\Mail(); 
-        $email->setFrom("test@example.com", "Example User");
-        $email->setSubject("Sending with SendGrid is Fun");
-        $email->addTo("test@example.com", "Example User");
-        $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
-        $email->addContent(
-            "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
-        );
-        $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
-        try {
-            $response = $sendgrid->send($email);
-            print $response->statusCode() . "\n";
-            print_r($response->headers());
-            print $response->body() . "\n";
-        } catch (Exception $e) {
-            echo 'Caught exception: '. $e->getMessage() ."\n";
-        }
-
-
-        debuguear($response);
-
-
                 // Crear el objeto de Email
                 $mail = new PHPMailer();
                 $mail->isSMTP();
