@@ -18,7 +18,7 @@ class Email
     public function enviarConfirmacion()
     {
         // Crear el objeto de Email
-        //        require 'phpmailer/PHPMailerAutoload.php';
+                require 'phpmailer/PHPMailerAutoload.php';
         $mail = new PHPMailer();
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
@@ -62,7 +62,7 @@ class Email
         $contenido = "<html>";
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has Solicitado reestablecer tu password, sigue el siguiente enlace para hacerlo</p>";
         $contenido .= "<p>Presiona Aquí:<a href='http://" . $_SERVER["HTTP_HOST"] . "/recuperar?token=" . $this->token . "'>Reestablece Tu Password</a></p>";
-        $contenido .= "<p>Si tu no solicitaste esta cuenta, puedes ignorar este correo</p>";
+        $contenido .= "<p>Si tú no lo solicitaste puedes ignorar este correo</p>";
         $contenido .= "</html>";
         $mail->Body = $contenido;
         // Enviar el mail
