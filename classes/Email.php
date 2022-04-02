@@ -25,8 +25,8 @@ class Email
 
         $mail->SMTPAuth = true;
         $mail->Port = 587;
-        $mail->Username = 'albertosanchezc98@gmail.com';
-        $mail->Password = 'blqvuhfqngqbmdss';
+        $mail->Username = 'lashes.bar.qro@gmail.com';
+        $mail->Password = 'ynahsmkrrljpnlkv';
         $mail->setFrom($_POST['email']);
         $mail->addAddress($this->email, $this->nombre);
         $mail->Subject = 'Confirma tu Cuenta';
@@ -51,8 +51,8 @@ class Email
 
         $mail->SMTPAuth = true;
         $mail->Port = 587;
-        $mail->Username = 'albertosanchezc98@gmail.com';
-        $mail->Password = 'blqvuhfqngqbmdss';
+        $mail->Username = 'lashes.bar.qro@gmail.com';
+        $mail->Password = 'ynahsmkrrljpnlkv';
         $mail->setFrom('cuentas@LashesBar.com', 'LashesBar.com');
         $mail->addAddress($this->email, $this->nombre);
         $mail->Subject = 'Reestablece Tu Password';
