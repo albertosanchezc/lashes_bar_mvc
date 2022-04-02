@@ -20,9 +20,9 @@ class Email
 
     public function enviarConfirmacion()
     {
-        require 'vendor/autoload.php';
         // Crear el objeto de Email
         $mail = new PHPMailer();
+        require 'vendor/autoload.php';
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
@@ -39,43 +39,45 @@ class Email
         $mail->CharSet = 'UTF-8';
 
         $contenido = "<html>";
-        $contenido .= "<p><strong>Hola ". $this->email . "</strong> Has creado tu cuenta en Lashes Bar, solo debes confirmarla presionando el siguiente enlace</p>";
-        $contenido .= "<p>Presiona aquí: <a href='http://". $_SERVER["HTTP_HOST"] . "/confirmar-cuenta?token=".$this->token."'>Confirmar Cuenta</a> </p>";
+        $contenido .= "<p><strong>Hola " . $this->email . "</strong> Has creado tu cuenta en Lashes Bar, solo debes confirmarla presionando el siguiente enlace</p>";
+        $contenido .= "<p>Presiona aquí: <a href='http://" . $_SERVER["HTTP_HOST"] . "/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a> </p>";
         $contenido .= "<p>Si tu no solicitaste esta cuenta, puedes ignorar este correo</p>";
         $contenido .= "</html>";
         $mail->Body = $contenido;
-        
+
 
         // Enviar el mail
         $mail->send();
     }
 
-    public function enviarInstrucciones(){
-                // Crear el objeto de Email
-                $mail = new PHPMailer();
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
-                $mail->SMTPAuth = true;
-                $mail->Port = 587;
-                $mail->Username = 'albertosanchezc98@gmail.com';
-                $mail->Password = 'blqvuhfqngqbmdss';
-        
-                $mail->setFrom('cuentas@LashesBar.com');
-                $mail->addAddress($_POST['email'], $_POST['nombre']);
-                $mail->Subject = 'Reestablece Tu Password';
-        
-                // Set HTML
-                $mail->isHTML(TRUE);
-                $mail->CharSet = 'UTF-8';
-        
-                $contenido = "<html>";
-                $contenido .= "<p><strong>Hola ". $this->nombre . "</strong> Has Solicitado reestablecer tu password, sigue el siguiente enlace para hacerlo</p>";
-                $contenido .= "<p>Presiona Aquí:<a href='http://". $_SERVER["HTTP_HOST"] . "/recuperar?token=" . $this->token . "'>Reestablece Tu Password</a></p>";
-                $contenido .= "<p>Si tu no solicitaste esta cuenta, puedes ignorar este correo</p>";
-                $contenido .= "</html>";
-                $mail->Body = $contenido;
-                
-                // Enviar el mail
-                $mail->send();
+    public function enviarInstrucciones()
+    {
+        // Crear el objeto de Email
+        $mail = new PHPMailer();
+        require 'vendor/autoload.php';
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Port = 587;
+        $mail->Username = 'albertosanchezc98@gmail.com';
+        $mail->Password = 'blqvuhfqngqbmdss';
+
+        $mail->setFrom('cuentas@LashesBar.com');
+        $mail->addAddress($_POST['email'], $_POST['nombre']);
+        $mail->Subject = 'Reestablece Tu Password';
+
+        // Set HTML
+        $mail->isHTML(TRUE);
+        $mail->CharSet = 'UTF-8';
+
+        $contenido = "<html>";
+        $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has Solicitado reestablecer tu password, sigue el siguiente enlace para hacerlo</p>";
+        $contenido .= "<p>Presiona Aquí:<a href='http://" . $_SERVER["HTTP_HOST"] . "/recuperar?token=" . $this->token . "'>Reestablece Tu Password</a></p>";
+        $contenido .= "<p>Si tu no solicitaste esta cuenta, puedes ignorar este correo</p>";
+        $contenido .= "</html>";
+        $mail->Body = $contenido;
+
+        // Enviar el mail
+        $mail->send();
     }
 }
