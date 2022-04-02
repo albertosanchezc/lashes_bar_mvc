@@ -19,7 +19,6 @@ class Email
     {
         // Crear el objeto de Email
         $mail = new PHPMailer();
-        require 'phpmailer/PHPMailerAutoload.php';
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
 
