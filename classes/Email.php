@@ -26,14 +26,15 @@ class Email
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
+        $mail->Port = 587;
         $mail->Username = 'e8f93059c33c8b';
         $mail->Password = '340e2e67a23d41';
 
-        $mail->setFrom('cuentas@LashesBar.com');
-        $mail->addAddress('cuentas@LashesBar.com');
-        $mail->addReplyTo($_POST['email']);
-        $mail->Subject = $_POST['email'];
+        $mail->setFrom('albertosanchezc98@gmail.com');
+        $mail->addAddress($_POST['email'], $_POST['nombre']);
+        $mail->Subject = 'Confirma tu Cuenta';
+    
+        
 
         // Set HTML
         $mail->isHTML(TRUE);
