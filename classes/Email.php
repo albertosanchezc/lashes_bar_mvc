@@ -1,6 +1,9 @@
 <?php
+
 namespace Classes;
+
 use PHPMailer\PHPMailer\PHPMailer;
+
 class Email
 {
     public $email;
@@ -15,14 +18,15 @@ class Email
     public function enviarConfirmacion()
     {
         // Crear el objeto de Email
-        require 'phpmailer/PHPMailerAutoload.php';
+        //        require 'phpmailer/PHPMailerAutoload.php';
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'smtp.mailtrap.io';
+        $mail->Host = 'smtp.gmail.com';
+
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = 'e8f93059c33c8b';
-        $mail->Password = '340e2e67a23d41';
+        $mail->Port = 587;
+        $mail->Username = 'albertosanchezc98@gmail.com';
+        $mail->Password = 'blqvuhfqngqbmdss';
         $mail->setFrom($_POST['email']);
         $mail->addAddress('cuentas@LashesBar.com', 'LashesBar.com');
         $mail->Subject = 'Confirma tu Cuenta';
@@ -45,15 +49,6 @@ class Email
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
 
-    
-          
-            
-    
-
-          
-    
-    
-  
         $mail->SMTPAuth = true;
         $mail->Port = 587;
         $mail->Username = 'albertosanchezc98@gmail.com';
