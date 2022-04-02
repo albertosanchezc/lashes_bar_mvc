@@ -18,8 +18,8 @@ class Email
     public function enviarConfirmacion()
     {
         // Crear el objeto de Email
-                require 'phpmailer/PHPMailerAutoload.php';
         $mail = new PHPMailer();
+        require 'phpmailer/PHPMailerAutoload.php';
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
 
