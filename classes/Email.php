@@ -20,6 +20,7 @@ class Email
 
     public function enviarConfirmacion()
     {
+        require 'vendor/autoload.php';
         // Crear el objeto de Email
         $mail = new PHPMailer();
         $mail->isSMTP();
@@ -51,6 +52,7 @@ class Email
 
     public function enviarInstrucciones(){
                 // Crear el objeto de Email
+                require 'vendor/autoload.php';
                 $mail = new PHPMailer();
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
