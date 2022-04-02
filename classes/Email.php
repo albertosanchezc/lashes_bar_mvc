@@ -2,7 +2,7 @@
 
 namespace Classes;
 
-use PHPMailer\PHPMailer\PHPMAiler;
+use PHPMailer\PHPMailer\PHPMailer;
 
 
 
@@ -24,7 +24,7 @@ class Email
         // Crear el objeto de Email
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = 'smtp.sendgrid.net';
         $mail->SMTPAuth = true;
         $mail->Port = 587;
         $mail->Username = 'e8f93059c33c8b';
@@ -51,33 +51,33 @@ class Email
     }
 
     public function enviarInstrucciones(){
-                // Crear el objeto de Email
-                require '../vendor/autoload.php';
-                $mail = new PHPMailer;
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
-                $mail->SMTPAuth = true;
-                $mail->Port = 587;
-                $mail->Username = 'albertosanchezc98@gmail.com';
-                $mail->Password = 'blqvuhfqngqbmdss';
-        
-                $mail->setFrom($_POST['email'], $_POST['nombre']);
-                $mail->addAddress('albertosanchezc98@gmail.com');
-                $mail->addReplyTo($_POST['email'], $_POST['nombre']);
-                $mail->Subject = 'Reestablece Tu Password';
-        
-                // Set HTML
-                $mail->isHTML(TRUE);
-                $mail->CharSet = 'UTF-8';
-        
-                $contenido = "<html>";
-                $contenido .= "<p><strong>Hola ". $this->nombre . "</strong> Has Solicitado reestablecer tu password, sigue el siguiente enlace para hacerlo</p>";
-                $contenido .= "<p>Presiona Aquí:<a href='http://". $_SERVER["HTTP_HOST"] . "/recuperar?token=" . $this->token . "'>Reestablece Tu Password</a></p>";
-                $contenido .= "<p>Si tu no solicitaste esta cuenta, puedes ignorar este correo</p>";
-                $contenido .= "</html>";
-                $mail->Body = $contenido;
-                
-                // Enviar el mail
-                $mail->send();
+
+            // Crear el objeto de Email
+            require 'phpmailer/PHPMailerAutoload.php';
+            $mail = new PHPMailer();
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Port = 587;
+            $mail->Username = 'albertosanchezc98@gmail.com';
+            $mail->Password = 'blqvuhfqngqbmdss';
+    
+            $mail->setFrom($_POST['email']);
+            $mail->addAddress('cuentas@LashesBar.com', 'LashesBar.com');
+            $mail->Subject = 'Reestablece Tu Password';
+    
+            // Set HTML
+            $mail->isHTML(TRUE);
+            $mail->CharSet = 'UTF-8';
+    
+            $contenido = "<html>";
+            $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has Solicitado reestablecer tu password, sigue el siguiente enlace para hacerlo</p>";
+            $contenido .= "<p>Presiona Aquí:<a href='http://" . $_SERVER["HTTP_HOST"] . "/recuperar?token=" . $this->token . "'>Reestablece Tu Password</a></p>";
+            $contenido .= "<p>Si tu no solicitaste esta cuenta, puedes ignorar este correo</p>";
+            $contenido .= "</html>";
+            $mail->Body = $contenido;
+    
+            // Enviar el mail
+            $mail->send();
     }
 }
