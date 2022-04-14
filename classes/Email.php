@@ -15,6 +15,7 @@ class Email
         $this->nombre = $nombre;
         $this->token = $token;
     }
+
     public function enviarConfirmacion()
     {
         // Crear el objeto de Email
@@ -25,7 +26,7 @@ class Email
         $mail->SMTPAuth = true;
         $mail->Port = 587;
         $mail->Username = 'lashes.bar.qro@gmail.com';
-        $mail->Password = 'ynahsmkrrljpnlkv';
+        $mail->Password = 'ufparuuxzegqcwmu';
         $mail->setFrom('cuentas@LashesBar.com', 'LashesBar.com');
         $mail->addAddress($this->email, $this->nombre);
         $mail->Subject = 'Confirma tu Cuenta';
